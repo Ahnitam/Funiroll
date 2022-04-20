@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:funiroll/models/episodio.dart';
 import 'package:funiroll/models/login/login_stream.dart';
 import 'package:funiroll/states/login/login_stream_state.dart';
+import 'package:funiroll/utils/show_toast.dart';
 import 'package:funiroll/utils/types.dart';
 import 'package:funiroll/utils/utils.dart';
 import 'package:funiroll/utils/video.dart';
@@ -421,7 +423,8 @@ class Crunchyroll extends Stream {
         "video": {},
         "audio": {},
         "legenda": {},
-      }
+      },
+      "status": "Esperando na fila de Downloads"
     };
     try {
       await _addDownload(
@@ -442,7 +445,7 @@ class Crunchyroll extends Stream {
           .doc(episodio.id)
           .set(download);
 
-      debugPrint(jsonEncode(download));
+      showToast("Adicionado à Fila", color: Colors.green);
     } catch (e) {
       debugPrint(e.toString());
     }
