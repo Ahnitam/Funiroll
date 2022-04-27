@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:funiroll/models/episodio.dart';
 import 'package:funiroll/models/login/login_stream.dart';
